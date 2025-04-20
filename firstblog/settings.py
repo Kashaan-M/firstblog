@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 # which is declared in STATIC_ROOT.
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
+# Media URLS 
+# Read More : https://djangocentral.com/managing-media-files-in-django/
+
+# In Django, media files are files uploaded by users on the system. However, like
+# static files media files should not be trusted.
+# Base URL for serving media files
+MEDIA_URL = '/media/'
+# path where media is stored 
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
