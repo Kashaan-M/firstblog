@@ -1,20 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-    <style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
-    }
-
-    .head_text {
-        color: white;
-    }
-
-    .card {
-        box-shadow: 0 16px 48px #E3E7EB;
-    }
-    </style>
     <header class="masthead">
         <div class="overlay"></div>
         <div class="container">
@@ -43,10 +28,13 @@
                     </div>
                 {% endfor %}
             </div>
+            {% comment %} Sidebar Start {% endcomment %}
             {% block sidebar %}
                 {% include "sidebar.html" %}
             {% endblock sidebar %}
+            {% comment %} Sidebar End {% endcomment %}
         </div>
+        {% comment %} Pagination Start {% endcomment %}
         {% if is_paginated %}
             <nav aria-label="Page Navigation Container">
                 <ul class="pagination justify-content-center">
@@ -63,5 +51,6 @@
                 </ul>
             </nav>
         {% endif %}
+        {% comment %} Pagination End {% endcomment %}
     </div>
 {% endblock content %}

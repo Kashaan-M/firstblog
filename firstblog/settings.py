@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -116,7 +117,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# This URL will append to base URL for serving static files in development
 STATIC_URL = 'static/'
+#location of the static files. This tells Django location of static files
+# in your project.
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
+
+
+# STATIC_ROOT is the single root directory from where the Django application
+# will serve the static files in Production.
+# During deployment you would typically want to serve the static files from 
+# conventional /var/www/example.com
+# The command manage.py collectstatic will automatically compile all the 
+# static files throughout the project and dump it into a single root directory,
+# which is declared in STATIC_ROOT.
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
