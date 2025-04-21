@@ -29,3 +29,7 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(active=True)
+
+admin.site.site_header="Learn Economics"
+admin.site.site_title = "Learn Economics"
+admin.site.index_title=""
