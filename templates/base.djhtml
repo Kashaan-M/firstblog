@@ -1,14 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       {% block title %}
         Learn Economics
       {% endblock title %}
     </title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <script src='{% static 'js/script.js' %}'></script>
     <link rel="apple-touch-icon"
           sizes="180x180"
           href="{% static 'img/apple-touch-icon.png' %}">
@@ -27,28 +28,37 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow"
          id="mainNav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Learn Economics</a>
-        <button class="navbar-toggler navbar-toggler-right"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="row w-100">
+          <div class="col-sm-4">
+            <a class="navbar-brand" href="{% url 'blog:home' %}">Learn Economics</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        <div class="col-sm-8">
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">About</a>
+              <a class="nav-link text-black font-weight-bold" href="#">Economics</a>
             </li>
             <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Policy</a>
+              <a class="nav-link text-black font-weight-bold" href="#">Chemistry</a>
             </li>
             <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Contact</a>
+              <a class="nav-link text-black font-weight-bold" href="#">Physics</a>
+            </li>
+            <li class="nav-item text-black">
+              <a class="nav-link text-black font-weight-bold" href="#">Math</a>
             </li>
           </ul>
+        </div>
+        </div>
         </div>
       </div>
     </nav>
@@ -65,5 +75,7 @@
       </div>
       <p class="m-0 text-dark text-center">Copyright &copy; Learn Economics</p>
     </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

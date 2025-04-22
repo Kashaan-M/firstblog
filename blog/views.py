@@ -10,13 +10,13 @@ from .forms import CommentForm
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
-    template_name = 'index.html'
+    template_name = 'index.djhtml'
     paginate_by = 2
     
 
 
 def post_detail(request, slug):
-    template_name = 'post_detail.html'
+    template_name = 'post_detail.djhtml'
     post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(active=True)
     new_comment = None # comment posted

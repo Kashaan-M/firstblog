@@ -9,16 +9,23 @@ STATUS = (
     (0, "Default"),
     (1, "Publish")
 )
+CATEGORY = {
+    "Economics": "Economics",
+    "Chemistry": "Chemistry",
+    "Physics": "Physics",
+    "Maths": "Maths"
+}
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    category = models.CharField(choices=CATEGORY, max_length=9, default="Economics")
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now=True)
     content = SummernoteTextField()
+    banner = models.ImageField(default="fallback.png", blank=True) # blank=True means if we don't provide an image then that is ok
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    banner = models.ImageField(default="fallback.png", blank=True) # blank=True means if we don't provide an image then that is ok
 
     class Meta:
         ordering = ['-created_on']

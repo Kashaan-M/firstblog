@@ -1,7 +1,7 @@
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(bootstrap.min.css);
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-size: 17px;
   background-color: #fdfdfd;
 }
@@ -27,4 +27,14 @@ body {
 
 .card {
   box-shadow: 0 16px 48px #e3e7eb;
+}
+
+.bg-orange {
+  background-color: var(--bs-orange);
+}
+.bg-purple {
+  background-color: var(--bs-purple);
+}
+.bg-teal {
+  background-color: var(--bs-teal);
 }

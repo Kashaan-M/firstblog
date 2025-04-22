@@ -1,11 +1,11 @@
 {% block sidebar %}
   <!-- Sidebar Widgets Column -->
-  <div class="col-md-4 float-right">
+  <div class="col-md-4">
     <div class="card my-4">
       <h5 class="card-header">About Us</h5>
       <div class="card-body">
         <p class="card-text">This blog is dedicated to all the students who are interested in learning economics.</p>
-        <a href="{% url 'home' %}" class="btn btn-danger">Know more!</a>
+        <a href="{% url 'blog:home' %}" class="btn btn-danger">Know more!</a>
       </div>
     </div>
   </div>

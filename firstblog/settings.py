@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'blog.apps.BlogConfig',
-    'django_summernote'
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -153,9 +153,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # django-summernote app config
 SUMMERNOTE_CONFIG = {
 'summernote' : {
-    "width":"80%",
-    "height": "400",
 
+    # 'toolbar': [
+    #         ['style', ['style']],
+    #         ['font', ['bold', 'underline', 'clear']],
+    #         ['fontname', ['fontname']],
+    #         ['color', ['color']],
+    #         ['para', ['ul', 'ol', 'paragraph']],
+    #         ['table', ['table']],
+    #         ['insert', ['link', 'picture', 'video']],
+    #         ['view', ['fullscreen', 'codeview', 'help']],
+    #     ],
     'toolbar': [
         ['style', ['style']],
         ['font', ['bold', 'underline', 'clear']],
@@ -163,6 +171,16 @@ SUMMERNOTE_CONFIG = {
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['insert', ['link']],
+        ['view',['fullscreen']]
     ]
 }
 }
+
+# django-tailwind config (PACKAGE NOT USED IN THIS PROJECT)
+# TAILWIND_APP_NAME = 'theme'
+
+# error pops up when I run 'python manage.py tailwind install' 
+# need to tell settings.py the path of NPM executable in my system.
+# npm for powershell in this case.
+
+# NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"

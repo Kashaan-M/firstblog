@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.djhtml" %}
 {% block content %}
     <header class="masthead">
         <div class="overlay"></div>
@@ -16,25 +16,36 @@
     <div class="container">
         <div class="row">
             <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-3 left">
+            <div class="col-md-7 mt-3 left">
                 {% for post in post_list %}
                     <div class="card mb-4">
                         <div class="card-img-top d-flex justify-content-center mt-4"
                              align="center">
-                            <img src="{{ post.banner.url }}" alt="{{ post.title|truncatewords:"30" }}">
+                            <img src="{{ post.banner.url }}" class="rounded img-fluid pt-5 ps-5 pe-5" alt="{{ post.title|truncatewords:"30" }}">
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">{{ post.title }}</h2>
                             <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
+                            <p>
+                            {% if post.category == "Economics" %}
+                                <span class="bg-success text-white px-1 py-1 w-auto">{{ post.category }}</span>
+                            {% elif post.category == "Chemistry" %}
+                                <span class="bg-orange text-white px-1 py-1 w-auto">{{ post.category }}</span>
+                            {% elif post.category == "Physics" %}
+                                <span class="bg-purple text-white px-1 py-1 w-auto">{{ post.category }}</span>
+                            {% elif post.category == "Maths" %}
+                                <span class="bg-warning text-white px-1 py-1 w-auto">{{ post.category }}</span>
+                            {% endif %}
+                            </p>
                             <p class="card-text">{{ post.content|safe|truncatewords:"30" }}</p>
-                            <a href="{% url "post_detail" post.slug %}" class="btn btn-primary mx-4">Read More &rarr;</a>
+                            <a href="{% url "blog:post_detail" post.slug %}" class="btn btn-primary mx-4">Read More &rarr;</a>
                         </div>
                     </div>
                 {% endfor %}
             </div>
             {% comment %} Sidebar Start {% endcomment %}
             {% block sidebar %}
-                {% include "sidebar.html" %}
+                {% include "sidebar.djhtml" %}
             {% endblock sidebar %}
             {% comment %} Sidebar End {% endcomment %}
         </div>
