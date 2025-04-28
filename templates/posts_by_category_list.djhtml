@@ -1,0 +1,26 @@
+{% extends "base.djhtml" %}
+{% block content %}
+{% include "components/header.djhtml" with title=category description="Browse posts related to this subject" %}
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-7 mt-3 left">
+            {% comment %} Note Only one for loop will run depending if post_list is provided or posts_by_category_list is provided {% endcomment %}
+            {% block posts %}
+                {% include "include/blog_posts_list.djhtml" %}
+            {% endblock posts %}
+
+        </div>
+        {% comment %} Sidebar Start {% endcomment %}
+        {% block sidebar %}
+            {% include "components/sidebar.djhtml" %}
+        {% endblock sidebar %}
+        {% comment %} Sidebar End {% endcomment %}
+    </div>
+    
+    {% block category_pagination %}
+        {% include "include/category_pagination.djhtml" %}
+    {% endblock category_pagination %}
+    
+</div>
+{% endblock content %}

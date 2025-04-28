@@ -7,3 +7,12 @@ Lib/
 Scripts/
 
 pyvenv.cfg
+
+.vscode/
+
+*/__pycache__/
+
+db.sqlite3
+
+dummy_users.txt
+

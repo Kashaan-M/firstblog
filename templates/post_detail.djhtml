@@ -11,12 +11,12 @@
           </h1>
           <img src="{{ post.banner.url }}" alt="{{ post.title }}" class="my-4" />
           <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-          <p><strong><span class="bg-success text-white p-1">{{ post.category }}</strong></span></p>
+          <a href="{% url 'blog:category' post.get_category_display %}"><p><strong><span class="bg-success text-white p-1">{{ post.get_category_display }}</strong></span></p></a>
           <p class="card-text ">{{ post.content|safe }}</p>
         </div>
       </div>
       {% block sidebar %}
-        {% include 'sidebar.djhtml' %}
+        {% include 'components/sidebar.djhtml' %}
       {% endblock sidebar %}
       <div class="col-md-8 card mb-4  mt-3 ">
         <div class="card-body">
@@ -37,6 +37,7 @@
         <div class="card-body">
           {% if new_comment %}
             <div class="alert alert-success" role="alert">Your comment is awaiting moderation</div>
+
           {% else %}
             <h3>Leave a comment</h3>
             <form method="post" style="margin-top: 1.3em;">

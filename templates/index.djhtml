@@ -1,71 +1,29 @@
 {% extends "base.djhtml" %}
 {% block content %}
-    <header class="masthead">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h3 class=" site-heading my-4 mt-3 text-white">Learn one of the most powerful subjects</h3>
-                        <p class="text-light">Learn once. Use it for lifetime.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+
+{% include "components/header.djhtml" with title="SciHelp - Blog" description="Learn Science subjects in one place." %}
+    
     <div class="container">
         <div class="row">
             <!-- Blog Entries Column -->
             <div class="col-md-7 mt-3 left">
-                {% for post in post_list %}
-                    <div class="card mb-4">
-                        <div class="card-img-top d-flex justify-content-center mt-4"
-                             align="center">
-                            <img src="{{ post.banner.url }}" class="rounded img-fluid pt-5 ps-5 pe-5" alt="{{ post.title|truncatewords:"30" }}">
-                        </div>
-                        <div class="card-body">
-                            <h2 class="card-title">{{ post.title }}</h2>
-                            <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
-                            <p>
-                            {% if post.category == "Economics" %}
-                                <span class="bg-success text-white px-1 py-1 w-auto">{{ post.category }}</span>
-                            {% elif post.category == "Chemistry" %}
-                                <span class="bg-orange text-white px-1 py-1 w-auto">{{ post.category }}</span>
-                            {% elif post.category == "Physics" %}
-                                <span class="bg-purple text-white px-1 py-1 w-auto">{{ post.category }}</span>
-                            {% elif post.category == "Maths" %}
-                                <span class="bg-warning text-white px-1 py-1 w-auto">{{ post.category }}</span>
-                            {% endif %}
-                            </p>
-                            <p class="card-text">{{ post.content|safe|truncatewords:"30" }}</p>
-                            <a href="{% url "blog:post_detail" post.slug %}" class="btn btn-primary mx-4">Read More &rarr;</a>
-                        </div>
-                    </div>
-                {% endfor %}
+                {% block posts %}
+                    {% include "include/blog_posts_list.djhtml" %}
+                {% endblock posts %}
+
+
             </div>
             {% comment %} Sidebar Start {% endcomment %}
             {% block sidebar %}
-                {% include "sidebar.djhtml" %}
+                {% include "components/sidebar.djhtml" %}
             {% endblock sidebar %}
             {% comment %} Sidebar End {% endcomment %}
         </div>
-        {% comment %} Pagination Start {% endcomment %}
-        {% if is_paginated %}
-            <nav aria-label="Page Navigation Container">
-                <ul class="pagination justify-content-center">
-                    {% if page_obj.has_previous %}
-                        <li>
-                            <a href="?page={{ page_obj.previous_page_number }}" class='page-link'>&laquo; PREV</a>
-                        </li>
-                    {% endif %}
-                    {% if page_obj.has_next %}
-                        <li>
-                            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        {% endif %}
-        {% comment %} Pagination End {% endcomment %}
+        
+        {% block blog_pagination %}
+            {% include "include/blog_pagination.djhtml" %}
+        {% endblock blog_pagination %}
+        
+        
     </div>
 {% endblock content %}

@@ -16,6 +16,7 @@ CATEGORY = {
     "Maths": "Maths"
 }
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     category = models.CharField(choices=CATEGORY, max_length=9, default="Economics")
@@ -34,7 +35,7 @@ class Post(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"slug": str(self.slug)})
+        return reverse("blog:post_detail", kwargs={"slug": str(self.slug)})
     
             
 class Comment(models.Model):

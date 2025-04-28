@@ -1,0 +1,15 @@
+{% block header %}
+<header class="bg-light border border-bottom border-dark">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading py-3">
+                    <h3 class=" site-heading h1 fw-bold text-dark text-center">{{ title }}</h3>
+                    <p class="text-muted text-center h3">{{ description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}

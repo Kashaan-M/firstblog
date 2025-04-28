@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       {% block title %}
-        Learn Economics
+        SciHelp
       {% endblock title %}
     </title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -30,7 +30,7 @@
       <div class="container-fluid">
         <div class="row w-100">
           <div class="col-sm-4">
-            <a class="navbar-brand" href="{% url 'blog:home' %}">Learn Economics</a>
+            <a class="navbar-brand" href="{% url 'blog:home' %}">SciHelp</a>
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -41,23 +41,20 @@
               <span class="navbar-toggler-icon"></span>
             </button>
           </div>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Economics</a>
+              <a class="nav-link text-black font-weight-bold" href="#">Blog</a>
             </li>
             <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Chemistry</a>
-            </li>
-            <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Physics</a>
-            </li>
-            <li class="nav-item text-black">
-              <a class="nav-link text-black font-weight-bold" href="#">Math</a>
+              <a class="nav-link text-black font-weight-bold" href="{% url 'blog:contact_us' %}">Contact Us</a>
             </li>
           </ul>
         </div>
+        </div>
+        <div class="col-sm-4">
+          <a href="{% url "user:login"%}" class="btn btn-info">Login</a>
         </div>
         </div>
       </div>
@@ -69,8 +66,8 @@
     <footer class="py-3 bg-light">
       <div class="col-md-4">
         <div class="d-flex mx-4 justify-content-around align-items-center">
-          <a href="{% url "sitemap" %}">Sitemap</a>
-          <a href="{% url "rss_feed" %}">RSS Feed</a>
+          <a href="{% url "blog:sitemap" %}">Sitemap</a>
+          <a href="{% url "blog:rss_feed" %}">RSS Feed</a>
         </div>
       </div>
       <p class="m-0 text-dark text-center">Copyright &copy; Learn Economics</p>

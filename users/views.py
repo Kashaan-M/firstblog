@@ -27,7 +27,7 @@ def register_view(request):
     # django will internally validate the data for the
     # POST method and in case data is not valid then
     # it will reload the register page, as below.
-    return render(request, "users/register.html", {"form": form})
+    return render(request, "users/register.djhtml", {"form": form})
 
 
 def login_view(request):
@@ -39,13 +39,13 @@ def login_view(request):
             # print("CREDENTIALS OKAY..LOGING IN")
             # LOGIN user
             login(request, form.get_user())
-            return redirect("polls:polls_list")
+            return redirect("blog:home")
     else:
         print("INVALID FORM")
         form = AuthenticationForm()
-    return render(request, "users/login.html", {"form": form})
+    return render(request, "login.djhtml", {"form": form})
 
 
 def logout_view(request):
     logout(request)
-    return redirect("homepage")
+    return redirect("blog:home")
